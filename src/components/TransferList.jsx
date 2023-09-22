@@ -1,6 +1,6 @@
 import * as React from 'react'
 import List from './List'
-import {generateRandomListItems} from '../data'
+import Controller from './Controller'
 
 function TransferList({list = []}) {
   const half = Math.ceil(list.length / 2)
@@ -10,6 +10,7 @@ function TransferList({list = []}) {
   return (
     <>
       <List items={left} />
+      <Controller />
       <List items={right} />
     </>
   )

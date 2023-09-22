@@ -1,0 +1,54 @@
+.list-item {
+  display: block;
+  position: relative;
+  padding-left: 3.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 2.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  & &--checkbox:checked ~ &--checkmark:after {
+    display: block;
+  }
+
+  &:hover &--checkbox ~ &--checkmark {
+    background-color: $color-grey-light-1;
+  }
+
+  & &--checkbox:checked ~ &--checkmark {
+    background-color: $color-secondary;
+  }
+
+  &--checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  &--checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: $color-grey-light-1;
+    border-radius: 2rem;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: .9rem;
+      top: .5rem;
+      width: 5px;
+      height: 1rem;
+      border: solid $color-white;
+      border-width: 0 .3rem .3rem 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+}

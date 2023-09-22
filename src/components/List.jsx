@@ -3,8 +3,8 @@ import ListItem from './ListItem'
 
 function List({items = []}) {
   return (
-    <section>
-      <div role="list">
+    <section className="list">
+      <div className="list--container" role="list">
         <ListItem label="test" />
         <ListItem label="test" />
         <ListItem label="test" />

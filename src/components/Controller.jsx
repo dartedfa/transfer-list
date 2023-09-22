@@ -6,10 +6,6 @@ function Controller() {
     <section className="controller">
       <div className="controller--container">
         <button
-          // sx={{ my: 0.5 }}
-          // variant="outlined"
-          // size="small"
-          // onClick={handleAllRight}
           // disabled={left.length === 0}
           className="btn all disabled"
           aria-label="move all right"
@@ -17,10 +13,6 @@ function Controller() {
           <span>&raquo;</span>
         </button>
         <button
-          // sx={{ my: 0.5 }}
-          // variant="outlined"
-          // size="small"
-          // onClick={handleCheckedRight}
           // disabled={leftChecked.length === 0}
           className="btn single"
           aria-label="move selected right"

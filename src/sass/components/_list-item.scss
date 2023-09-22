@@ -9,25 +9,6 @@
   -ms-user-select: none;
   user-select: none;
 
-  & &--checkbox:checked ~ &--checkmark:after {
-    display: block;
-  }
-
-  &:hover &--checkbox ~ &--checkmark {
-    background-color: $color-grey-light-1;
-  }
-
-  & &--checkbox:checked ~ &--checkmark {
-    background-color: $color-secondary;
-  }
-
-  &--checkbox {
-    position: absolute;
-    opacity: 0;
-    height: 0;
-    width: 0;
-  }
-
   &--checkmark {
     position: absolute;
     top: 0;
@@ -49,6 +30,13 @@
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
+    }
+
+    &.checked {
+      background-color: $color-secondary;
+      &:after {
+        display: block;
+      }
     }
   }
 }

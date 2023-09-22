@@ -1,12 +1,15 @@
 import * as React from 'react'
 
 function ListItem({label}) {
+  const [checked, setChecked] = React.useState(false)
+  const handleCheck = () => {
+    setChecked(prevState => !prevState)
+  }
   return (
-    <div className="list-item">
-      <label className="list-item--label">
-        <input type="checkbox" className="list-item--checkbox" />
-        <span className="list-item--checkmark"></span>
-        <span className="list-item--label--text">{label}</span>
+    <div className='list-item' onClick={handleCheck}>
+      <label className='list-item--label'>
+        <span className={`list-item--checkmark ${checked && 'checked'}`}></span>
+        <span className='list-item--label--text'>{label}</span>
       </label>
     </div>
   )

@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $default-font-size;
+  height: 100vh;
+  color: $color-grey-dark-1;
+  background-image: linear-gradient(to top left, $color-primary 0%, $color-secondary 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100rem;
+  height: 60rem;
+  background-color: rgba($color-grey-dark, 0.2);
+  backdrop-filter: blur(20rem);
+  filter: blur();
+  box-shadow: 0 6rem 5rem rgba($color-black, 0.25);
+  border-radius: 1.2rem;
+}

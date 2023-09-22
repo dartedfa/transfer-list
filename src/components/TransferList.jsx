@@ -1,7 +1,8 @@
 import * as React from 'react'
+import List from './List'
 
 function TransferList() {
-  return <div>Hey !</div>
+  return <List />
 }
 
 export default TransferList

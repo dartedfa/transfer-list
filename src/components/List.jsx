@@ -1,9 +1,15 @@
 import * as React from 'react'
+import ListItem from './ListItem'
 
 function List({items = []}) {
   return (
-    <section role="list">
-      {items.map(() => <div></div>)}
+    <section>
+      <div role="list">
+        <ListItem label="test" />
+        <ListItem label="test" />
+        <ListItem label="test" />
+        <ListItem label="test" />
+      </div>
     </section>
   )
 }

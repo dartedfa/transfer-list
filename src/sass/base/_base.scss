@@ -6,6 +6,7 @@
 
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 
   @include respond(tab-land) {
     font-size: 56.25%;
@@ -18,7 +19,6 @@ html {
   @include respond(big-desktop) {
     font-size: 75%;
   }
-  box-sizing: border-box;
 }
 
 body {

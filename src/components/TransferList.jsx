@@ -4,14 +4,27 @@ import Controller from './Controller'
 
 function TransferList({list = []}) {
   const half = Math.ceil(list.length / 2)
-  const [left, setLeft] = React.useState(() => list.slice(0, half))
-  const [right, setRight] = React.useState(() => list.slice(half))
+  const [leftItems, setLeftItems] = React.useState(() => list.slice(0, half))
+  const [rightItems, setRightItems] = React.useState(() => list.slice(half))
+  const [checkedItems, setCheckedItems] = React.useState([])
+
+  console.log(leftItems)
+
+  console.log(rightItems)
+
 
   return (
     <>
-      <List items={left} />
-      <Controller />
-      <List items={right} />
+      <List setCheckedItems={setCheckedItems} items={leftItems} />
+      <Controller
+        checkedItems={checkedItems}
+        leftItems={leftItems}
+        rightItems={rightItems}
+        setLeftItems={setLeftItems}
+        setRightItems={setRightItems}
+        setCheckedItems={setCheckedItems}
+      />
+      <List setCheckedItems={setCheckedItems} items={rightItems} />
     </>
   )
 }

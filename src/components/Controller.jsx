@@ -1,40 +1,83 @@
-import * as React from "react"
+import * as React from 'react'
+import {intersection, difference} from 'helpers'
 
-function Controller() {
+function Controller({
+                      checkedItems,
+                      leftItems,
+                      rightItems,
+                      setLeftItems,
+                      setRightItems,
+                      setCheckedItems,
+                    }) {
+  const checkedLeftItems = intersection(checkedItems, leftItems)
+  const checkedRightItems = intersection(checkedItems, rightItems)
+
+  const isLeftItemsChecked = Boolean(checkedLeftItems.length)
+  const isLeftItemsEmpty = leftItems.length === 0
+  const isRightItemsChecked = Boolean(checkedRightItems.length)
+  const isRightItemsEmpty = rightItems.length === 0
+
+  function moveAllToRightSide() {
+    setRightItems(prevState => [...prevState, ...leftItems])
+    return setLeftItems([])
+  }
+
+  function moveAllToLeftSide() {
+    setLeftItems(prevState => [...prevState, ...rightItems])
+    return setRightItems([])
+  }
+
+  function moveSelectedToLeftSide() {
+    const itemsToMoveToLeftSide = difference(checkedItems, leftItems)
+    const updatedCheckedItems = difference(checkedItems, itemsToMoveToLeftSide)
+    const updatedRightItems = difference(rightItems, itemsToMoveToLeftSide)
+    setLeftItems(prevState => [...prevState, ...itemsToMoveToLeftSide])
+    setRightItems(updatedRightItems)
+    return setCheckedItems(updatedCheckedItems)
+  }
+
+  function moveSelectedToRightSide() {
+    const itemsToMoveToRightSide = difference(checkedItems, rightItems)
+    setLeftItems(prevState => difference(prevState, itemsToMoveToRightSide))
+    setRightItems(prevState => [...prevState, ...itemsToMoveToRightSide])
+    return setCheckedItems(prevState => difference(prevState, itemsToMoveToRightSide))
+  }
 
   return (
-    <section className="controller">
-      <div className="controller--container">
+    <section className='controller'>
+      <div className='controller--container'>
         <button
-          // disabled={left.length === 0}
-          className="btn all disabled"
-          aria-label="move all right"
+          disabled={isLeftItemsEmpty}
+          onClick={moveAllToRightSide}
+          className={`btn all ${isLeftItemsEmpty && 'disabled'}`}
+          aria-label='move all right'
         >
           <span>&raquo;</span>
         </button>
         <button
-          // disabled={leftChecked.length === 0}
-          className="btn single"
-          aria-label="move selected right"
+          disabled={!isLeftItemsChecked}
+          onClick={moveSelectedToRightSide}
+          className={`btn single ${!isLeftItemsChecked && 'disabled'}`}
+          aria-label='move selected right'
         >
           <span>&gt;</span>
         </button>
         <button
-          // disabled={rightChecked.length === 0}
-          className="btn single"
-          aria-label="move selected left"
+          disabled={!isRightItemsChecked}
+          onClick={moveSelectedToLeftSide}
+          className={`btn single ${!isRightItemsChecked && 'disabled'}`}
+          aria-label='move selected left'
         >
           <span>&lt;</span>
         </button>
         <button
-          className="btn all"
-          // disabled={right.length === 0}
-          aria-label="move all left"
+          disabled={isRightItemsEmpty}
+          onClick={moveAllToLeftSide}
+          className={`btn all ${isRightItemsEmpty && 'disabled'}`}
+          aria-label='move all left'
         >
           <span>&laquo;</span>
         </button>
-
-
       </div>
     </section>
   )

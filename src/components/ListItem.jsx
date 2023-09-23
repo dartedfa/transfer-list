@@ -1,9 +1,11 @@
 import * as React from 'react'
 
-function ListItem({label}) {
+function ListItem({label, setCheckedItems}) {
   const [checked, setChecked] = React.useState(false)
   const handleCheck = () => {
-    setChecked(prevState => !prevState)
+    if (checked) setCheckedItems(prevState => prevState.filter(item => item !== label))
+    else setCheckedItems(prevState => [...prevState, label])
+    return setChecked(prevState => !prevState)
   }
   return (
     <div className='list-item' onClick={handleCheck}>

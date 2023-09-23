@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "format": "prettier --write \"**/*.+(js|json|css|md|mdx|html)\""
+    "format": "prettier --write \"**/*.+(js|json|css|md|mdx|html)\"",
+    "serve": "serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "prettier": "^3.0.3",
-    "sass": "^1.68.0"
+    "sass": "^1.68.0",
+    "serve": "^14.2.1"
   }
 }

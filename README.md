@@ -19,3 +19,4 @@ Builds the app for production to the `build` folder.
 
 ### `yarn serve`
 After building application run production build.
+Default port 3000

@@ -24,14 +24,14 @@ describe('TransferList', () => {
     const rightList = getByTestId('list-right-container')
 
     expect(within(rightList).getAllByRole('listitem')).toHaveLength(1)
-    expect(leftList).not.toBeEmpty()
+    expect(leftList).not.toBeEmptyDOMElement()
     expect(moveAllToRightButton).not.toBeDisabled()
 
     userEvent.click(moveAllToRightButton)
 
     expect(moveAllToRightButton).toBeDisabled()
     expect(moveSelectedToRightButton).toBeDisabled()
-    expect(leftList).toBeEmpty()
+    expect(leftList).toBeEmptyDOMElement()
     expect(within(rightList).getAllByRole('listitem')).toHaveLength(2)
   })
   it('makes sure that move left buttons gets disabled after moving all items to left side', () => {
@@ -44,14 +44,14 @@ describe('TransferList', () => {
     const rightList = getByTestId('list-right-container')
 
     expect(within(leftList).getAllByRole('listitem')).toHaveLength(1)
-    expect(leftList).not.toBeEmpty()
+    expect(leftList).not.toBeEmptyDOMElement()
     expect(moveAllToLeftButton).not.toBeDisabled()
 
     userEvent.click(moveAllToLeftButton)
 
     expect(moveAllToLeftButton).toBeDisabled()
     expect(moveSelectedToLeftButton).toBeDisabled()
-    expect(rightList).toBeEmpty()
+    expect(rightList).toBeEmptyDOMElement()
     expect(within(leftList).getAllByRole('listitem')).toHaveLength(2)
   })
   it('moves selected item to left side', () => {

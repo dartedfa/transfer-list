@@ -13,9 +13,9 @@ function Controller({
   const checkedRightItems = intersection(checkedItems, rightItems)
 
   const isLeftItemsChecked = Boolean(checkedLeftItems.length)
-  const isLeftItemsEmpty = leftItems.length === 0
   const isRightItemsChecked = Boolean(checkedRightItems.length)
-  const isRightItemsEmpty = rightItems.length === 0
+  const isLeftItemsEmpty =  !Boolean(leftItems.length)
+  const isRightItemsEmpty = !Boolean(rightItems.length)
 
   function moveAllToRightSide() {
     setRightItems(prevState => [...prevState, ...leftItems])

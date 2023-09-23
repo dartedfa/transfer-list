@@ -2,13 +2,13 @@ import * as React from 'react'
 import {intersection, difference} from 'helpers'
 
 function Controller({
-                      checkedItems,
-                      leftItems,
-                      rightItems,
-                      setLeftItems,
-                      setRightItems,
-                      setCheckedItems,
-                    }) {
+ checkedItems = [],
+ leftItems = [],
+ rightItems = [],
+ setLeftItems,
+ setRightItems,
+ setCheckedItems,
+}) {
   const checkedLeftItems = intersection(checkedItems, leftItems)
   const checkedRightItems = intersection(checkedItems, rightItems)
 

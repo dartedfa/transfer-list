@@ -8,7 +8,7 @@ function ListItem({label, setCheckedItems}) {
     return setChecked(prevState => !prevState)
   }
   return (
-    <div className='list-item' onClick={handleCheck}>
+    <div role="listitem" className='list-item' onClick={handleCheck}>
       <label className='list-item--label'>
         <span className={`list-item--checkmark ${checked && 'checked'}`}></span>
         <span className='list-item--label--text'>{label}</span>

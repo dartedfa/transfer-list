@@ -10,7 +10,7 @@ function TransferList({list = []}) {
 
   return (
     <>
-      <List setCheckedItems={setCheckedItems} items={leftItems} />
+      <List setCheckedItems={setCheckedItems} items={leftItems} testId="left" />
       <Controller
         checkedItems={checkedItems}
         leftItems={leftItems}
@@ -19,7 +19,7 @@ function TransferList({list = []}) {
         setRightItems={setRightItems}
         setCheckedItems={setCheckedItems}
       />
-      <List setCheckedItems={setCheckedItems} items={rightItems} />
+      <List setCheckedItems={setCheckedItems} items={rightItems} testId="right" />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function ListItem({label, setCheckedItems}) {
+function ListItem({label = '', setCheckedItems}) {
   const [checked, setChecked] = React.useState(false)
   const handleCheck = () => {
     if (checked) setCheckedItems(prevState => prevState.filter(item => item !== label))

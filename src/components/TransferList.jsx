@@ -8,6 +8,16 @@ function TransferList({list = []}) {
   const [rightItems, setRightItems] = React.useState(() => list.slice(half))
   const [checkedItems, setCheckedItems] = React.useState([])
 
+  // We could also simulate list fetching using generateRandomListItems
+  // But for testing we would need to mock fetch(not preferable) or have Mock Service Worker.
+  // So decided to keep it as props.
+  // React.useEffect(() => {
+  //   const list = generateRandomListItems(500)
+  //   const half = Math.ceil(list.length / 2)
+  //   setLeftItems(list.slice(0, half))
+  //   setRightItems(list.slice(half))
+  // }, [])
+
   return (
     <>
       <List setCheckedItems={setCheckedItems} items={leftItems} testId="left" />

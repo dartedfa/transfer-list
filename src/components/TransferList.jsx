@@ -4,6 +4,9 @@ import Controller from './Controller'
 
 function TransferList({list = []}) {
   const half = Math.ceil(list.length / 2)
+  // Would definitely use context (For UI state only) here to avoid passing setCheckedItems through List -> ListItem
+  // But as of requirement "Use React hooks for internal component state(useState)"
+  // decided to keep it in useState.
   const [leftItems, setLeftItems] = React.useState(() => list.slice(0, half))
   const [rightItems, setRightItems] = React.useState(() => list.slice(half))
   const [checkedItems, setCheckedItems] = React.useState([])

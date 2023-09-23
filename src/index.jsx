@@ -5,7 +5,8 @@ import TransferList from 'components/TransferList'
 import reportWebVitals from './reportWebVitals'
 import {generateRandomListItems} from './data'
 
-const list = generateRandomListItems()
+// In case of high number of List items, it's preferable to do virtualization of list.
+const list = generateRandomListItems(500)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

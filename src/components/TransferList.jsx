@@ -8,11 +8,6 @@ function TransferList({list = []}) {
   const [rightItems, setRightItems] = React.useState(() => list.slice(half))
   const [checkedItems, setCheckedItems] = React.useState([])
 
-  console.log(leftItems)
-
-  console.log(rightItems)
-
-
   return (
     <>
       <List setCheckedItems={setCheckedItems} items={leftItems} />

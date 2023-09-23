@@ -1,6 +1,7 @@
 {
   "name": "transfer-list",
-  "version": "0.1.0",
+  "author": "Gio Gelashvili (github.com/dartedfa)",
+  "description": "This is a test assignment from NXLogs.",
   "private": true,
   "dependencies": {
     "@faker-js/faker": "^8.1.0",
@@ -19,6 +20,11 @@
     "format": "prettier --write \"**/*.+(js|json|css|md|mdx|html)\"",
     "serve": "serve -s build -l 3000"
   },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "sass": "^1.68.0",
+    "serve": "^14.2.1"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -36,10 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "^3.0.3",
-    "sass": "^1.68.0",
-    "serve": "^14.2.1"
   }
 }
